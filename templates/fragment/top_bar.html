@@ -11,15 +11,17 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        {% if user.is_authenticated %}
         <li class="active"><a href="/report/mine">My Reports</a></li>
         <li><a href="/report/all">All Reports</a></li>
+        {% endif %}
         <li><a href="/about">About</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if not user.is_authenticated %}
           <li><a href="/account/login">Login</a></li>
         {% else %}
-          <li><a href="/account/profiles">{{ user }}</a></li>
+          <li><a>{{ user }}</a></li>
           <li><a href="/account/logout">Logout</a></li>
         {% endif %}
       </ul>

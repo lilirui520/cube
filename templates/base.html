@@ -6,10 +6,13 @@
         <title> PhoneGuru‘s Home </title>
         {% block otherhead %}
         {% endblock %}
- 
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+        
         {% load bootstrap3 %}
         {% bootstrap_css %}
         <link rel="stylesheet" type="text/css" href="/static/css/cube.css" />
+        
     </head>
     <body>
         {% load bootstrap3 %}
@@ -31,6 +34,7 @@
         </div>
     
     <script src='/static/js/jquery.min.js' type='text/javascript'></script>
+    <script src='/static/js/jquery-1.10.2.js' type='text/javascript'></script>
     {% bootstrap_javascript %}
     
     {% block bodyscript %}

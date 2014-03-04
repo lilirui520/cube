@@ -4,6 +4,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     (r'^mine/$', "reports.views.mine"),
     (r'^all/$', "reports.views.all"),
+    #(r'^post/$', "reports.views.post"),
     # Examples:
     # url(r'^$', 'weekly.views.home', name='home'),
     # url(r'^weekly/', include('weekly.foo.urls')),
