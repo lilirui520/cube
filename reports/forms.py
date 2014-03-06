@@ -1,3 +1,5 @@
+#! -*- encoding: utf-8 -*-
+
 from django import forms
 
 class CreateReportForm(forms.Form):

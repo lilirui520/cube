@@ -2,7 +2,8 @@ from django.conf.urls import patterns, include, url
 
 
 urlpatterns = patterns('',
-    (r'^mine/$', "reports.views.mine"),
+    (r'^index/$', "reports.views.index"),
+    (r'^new/$', "reports.views.new"),
     (r'^all/$', "reports.views.all"),
     #(r'^post/$', "reports.views.post"),
     # Examples:

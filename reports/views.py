@@ -1,3 +1,5 @@
+#! -*- encoding: utf-8 -*-
+
 # from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
@@ -6,14 +8,16 @@ from django.template.context import RequestContext
 from django.contrib.auth.models import User
 from reports.forms import CreateReportForm
 from reports.models import Content
+from reports.models import ContentTableForSelf
+
+import django_tables2
 
 def all(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/index')
     return HttpResponse("Hello world")
 
-
-def mine(request):
+def new(request):
     csrf_context = RequestContext(request)
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/index')
@@ -34,4 +38,10 @@ def mine(request):
             pass
         else:
             form = CreateReportForm()
-            return render_to_response('reports/mine.html', { 'form' : form }, csrf_context)
+            return render_to_response('reports/new.html', { 'form' : form }, csrf_context)    
+
+def index(request):
+    csrf_context = RequestContext(request)
+    queryset = Content.objects.all()
+    table = ContentTableForSelf(queryset)
+    return render_to_response('reports/index.html', {"table" : table}, csrf_context)
