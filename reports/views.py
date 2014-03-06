@@ -8,14 +8,18 @@ from django.template.context import RequestContext
 from django.contrib.auth.models import User
 from reports.forms import CreateReportForm
 from reports.models import Content
-from reports.models import ContentTableForSelf
+from reports.models import ContentTableForSelf, ContentTableForOther
 
 import django_tables2
 
-def all(request):
+def other(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/index')
-    return HttpResponse("Hello world")
+    else:
+        csrf_context = RequestContext(request)
+        queryset = Content.objects.exclude(author=request.user)
+        table = ContentTableForOther(queryset)
+    return render_to_response('reports/other.html', {"table" : table}, csrf_context)
 
 def new(request):
     csrf_context = RequestContext(request)
@@ -42,6 +46,6 @@ def new(request):
 
 def index(request):
     csrf_context = RequestContext(request)
-    queryset = Content.objects.all()
+    queryset = Content.objects.filter(author=request.user)
     table = ContentTableForSelf(queryset)
     return render_to_response('reports/index.html', {"table" : table}, csrf_context)

@@ -7,21 +7,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">CUBE</a>
+      <a class="navbar-brand" href="/index">CUBE</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         {% if user.is_authenticated %}
-        <li class="active"><a href="/report/index">Reports</a></li>
+        <li class="active"><a href="/report/index">周报</a></li>
         {% endif %}
-        <li><a href="/about">About</a></li>
+        <li><a href="/about">关于</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if not user.is_authenticated %}
-          <li><a href="/account/login">Login</a></li>
+          <li><a href="/account/login">登录</a></li>
         {% else %}
           <li><a>{{ user }}</a></li>
-          <li><a href="/account/logout">Logout</a></li>
+          <li><a href="/account/logout">退出</a></li>
         {% endif %}
       </ul>
     </div><!--/.nav-collapse -->

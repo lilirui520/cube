@@ -8,15 +8,15 @@
 
 <div class="container" style="margin-top:100px; width:600px">
     
-    <h1>Login with an existing account</h1>
-    <h1>Or<a href="../register"> create </a>a new account</h1><br/>
+    <h1>登录已有账号</h1>
+    <h1>或者<a href="../register"> 创建 </a>一个新账号</h1><br/>
 
     <form action="" method="post" class="form">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
             <button type="submit" class="btn btn-primary">
-                {% bootstrap_icon "star" %} Login
+                {% bootstrap_icon "star" %} 登录
             </button>
             <input type="hidden" name="next" value="/index">
         {% endbuttons %}

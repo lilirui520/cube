@@ -7,10 +7,10 @@
 <div class="container" style="margin-top:100px; width:600px">
     
     {% if not user.is_authenticated %}
-        <h1>You need to <a href='/account/login/'>login</a> first to use CUBE.</h1>
+        <h1>你需要先<a href='/account/login/'>登录</a>才能使用CUBE.</h1>
     {% else %}
-        <h1>Hi, {{ user }}<br/>Welcome back to CUBE!</h1><br/>
-        <p>You last time logged in at {{ user.last_login }}</p>
+        <h1>Hi, {{ user }}<br/>欢迎回到 CUBE!</h1><br/>
+        <p>你上次登录时间为 {{ user.last_login }}</p>
     {% endif %}
 
 </div>

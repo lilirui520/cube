@@ -24,3 +24,9 @@ class ContentTableForSelf(tables.Table):
     """"""
     class Meta:
         model = Content
+        fields = ("start_date", "end_date", "cur_done", "next_goal", "comment")
+
+class ContentTableForOther(tables.Table):
+    class Meta:
+        model = Content
+        fields = ("start_date", "end_date", "author","cur_done", "next_goal")
