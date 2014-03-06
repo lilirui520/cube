@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^about/$', "weekly.views.about"),
     (r'^account/', include('accounts.urls')),
     (r'^report/', include('reports.urls')),
+    (r'^$', "weekly.views.index"),
     # Examples:
     # url(r'^$', 'weekly.views.home', name='home'),
     # url(r'^weekly/', include('weekly.foo.urls')),
